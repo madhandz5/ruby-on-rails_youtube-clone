@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Jadon TUBE</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <script   src="https://code.jquery.com/jquery-3.5.1.slim.min.js"   integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="   crossorigin="anonymous"></script>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+
+<body>
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">
+      <%= fa_icon "youtube-play", class: "text-danger mr-1" %>
+      Jadon TUBE
+    </a>
+    <%= form_tag videos_path, method: :get, class: "form-linline" do %>
+      <%= text_field_tag :q, params[:q], class: "form-control mr-2" %>
+      <%= submit_tag "검색", class: "btn btn-danger" %>
+    <% end %>
+    <div>
+    <% if current_user %>
+    <%= link_to '업로드', new_video_path, class: "btn btn-danger"%>
+    <%= link_to "로그아웃", destroy_user_session_path, method: :delete, class: "btn btn-outline-danger" %>
+    <% else  %>
+    <%= link_to "로그인", new_user_session_path, class: "btn btn-outline-danger"%>
+    <%= link_to "회원가입", new_user_registration_path, class: "btn btn-outline-danger"%>
+    <% end %>
+    
+    </div>
+  </nav>
+  <div class="conatiner-fluid">
+    <div class="card">
+      <div class="card-body">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
