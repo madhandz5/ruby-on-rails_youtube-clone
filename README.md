@@ -21,7 +21,7 @@ Frontside 는 Bootstrap / Fontawesome 으로 Style 하였습니다.<br><br>
 
 # 댓글<br>
 -댓글 작성이 가능하며, jquery를 사용하여 비동기처리 하였습니다.<br>
--로그인을 한 상태에서만 댓글을 작성할 수 있습니다.<br>
+-로그인을 한 상태에서만 댓글을 작성할 수 있습니다. before_action 처리 했습니다.<br>
 -댓글의 작성자와 일치하면, 삭제할 수 있습니다. 역시 jquery를 사용하여 비동기처리 하였습니다.<br><br>
 
 # 검색<br>
